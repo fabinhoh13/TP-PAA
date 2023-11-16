@@ -50,7 +50,9 @@ int main (int argc, char *argv[]) {
 
         if (op == 1)
         {
+            Iterative *it = new Iterative(tamanho, 100);
             inicio = clock();
+            it->solve(k);
             fim = clock();
         }
 
