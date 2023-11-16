@@ -28,7 +28,7 @@ int main (int argc, char *argv[]) {
 
     else if (op == 3)
     {
-        algoritmo = "BranchAndBound";
+        algoritmo = "Backtrack";
     }
 
     cout << "Algoritmo: " << algoritmo << endl << endl;
@@ -65,8 +65,10 @@ int main (int argc, char *argv[]) {
         }
 
         else if (op == 3)
-        {
+        {   
+            Backtrack *bt = new Backtrack();
             inicio = clock();
+            bt->solve(k);
             fim = clock();
         }
         cout << "Instancia " << i << ": " << (double)(fim - inicio) / CLOCKS_PER_SEC << endl;

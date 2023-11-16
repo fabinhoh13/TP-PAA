@@ -12,6 +12,9 @@ class Item {
     const int id;      // Item's identifier
     const int weight;  // Item's weight
     const int value;   // Item's monetary value
+    
+    int chosen;
+
     Item(int id, int weight, int value);
     ~Item();
 };
@@ -45,6 +48,10 @@ private:
      * Get the number of items for the instance;
      */
     int getSize() const;
+
+    int getChosen(int idx);
+
+    void setChosen(int idx, int choice);
 };
 
 #endif
