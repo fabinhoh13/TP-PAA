@@ -5,5 +5,5 @@ make all
 
 
 for j in 100 200 400 800 1600 3200 6400 12800 25600 51200 102400 204800 409600 819200 1638400 3276800; do
-        make run ALG=2 TAM="$j" 
+        make run ALG=4 TAM="$j" 
 done
