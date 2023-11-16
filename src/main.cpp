@@ -23,25 +23,20 @@ int main (int argc, char *argv[]) {
         {
             
             sprintf(caminho_arq, "../input/a2/n%d/weight-W%d-%d.in", tamanho, tamanho, i);
-            printf ("%s\n", caminho_arq);
             int pesoM;
             instancia = fopen(caminho_arq, "r");
-            if (instancia == NULL)
-            {
-                cout << "Erro ao abrir arquivo" << endl;
-                exit(1);
-            }
             int pesoI, valorI;
             fscanf(instancia, "%d", &pesoM);
             Knapsack *k = new Knapsack(pesoM, len);
-
+            cout << "Feito" << endl;
             for (int j = 0; j < len; j++)
             {
                 fscanf(instancia, "%d %d", &pesoI, &valorI);
                 k->insert(new Item(j, pesoI, valorI));
             }
+            cout << "Criados itens" << endl;
 
-            Iterative *it = new Iterative(len, 100);
+            Iterative *it = new Iterative(len, pesoM);
             inicio = clock();
             it->solve(k);
             fim = clock();
