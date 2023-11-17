@@ -4,10 +4,9 @@ echo "[+] Gerando Comparações de Testes T Entre Algoritmos"
 
 cd ../StatisticsGen
 
-for i in 10 100 1000 10000 100000 1000000; do
+for i in 10 20 30 40 50 60 70 80 90 100 200 400 800 1600 3200 6400 12800 25600 51200 102400 204800 409600 819200 1638400 3276800; do
     mkdir -p ../../output/TPairedTests/n$i
-    python3.10 TPairedCmp.py $i Merge_Sort Radix_Sort > ../../output/TPairedTests/n$i/Merge_Sort-X-Radix_Sort.out
-    python3.10 TPairedCmp.py $i Merge_Sort Insertion_Sort > ../../output/TPairedTests/n$i/Merge_Sort-X-Insertion_Sort.out
+    python3.10 TPairedCmp.py $i BranchAndBound Iteractive > ../../output/TPairedTests/n$i/BranchAndBound_Iteractive.out
 done
 
 echo "[+] Comparações Finalizadas!"

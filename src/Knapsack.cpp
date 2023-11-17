@@ -25,3 +25,11 @@ Item *Knapsack::getItem(int idx) const { return this->items[idx]; }
 int Knapsack::getCapacity() const { return this->capacity; }
 
 int Knapsack::getSize() const { return this->nItems; }
+
+int Knapsack::getChosen(int idx) { 
+    return this->items[idx]->chosen; 
+}
+
+void Knapsack::setChosen(int idx, int choice) { 
+    this->items[idx]->chosen = choice; 
+}

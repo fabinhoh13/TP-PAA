@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 import os, sys
 import numpy as np
 
-tamanhos = [10, 100, 1000, 10000, 100000, 1000000]
+tamanhos = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600, 51200, 102400, 204800, 409600, 819200, 1638400, 3276800]
 tempos_execucao = {tam: [] for tam in tamanhos}
-algs = ["Merge_Sort"]
+algs = ["Iteractive", "BranchAndBound", "SegundoTeste"]
 
 for alg in algs:
     for tamanho in tamanhos:
@@ -26,5 +26,8 @@ for alg in algs:
     plt.ylabel('Tempo de Execução')
     plt.title(f'Gráfico: {alg}')
     plt.grid(True)
+    
+    if os.path.exists ("../../graphs") == False:
+        os.mkdir("../../graphs")
 
     plt.savefig(f"../../graphs/{alg}.png", dpi=200)

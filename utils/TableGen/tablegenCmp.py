@@ -34,7 +34,7 @@ def create_table(data, row_labels, col_labels, ax):
     return table
 
 filepath = Path("../../output/TPairedTests/")
-folders = ["10","100","1000","10000","100000","1000000"]
+folders = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100", "200", "400", "800", "1600", "3200", "6400", "12800", "25600", "51200", "102400", "204800", "409600", "819200", "1638400", "3276800"]
 comparisons = [
     ("Merge_Sort", "Insertion_Sort"),
     ("Insertion_Sort", "Radix_Sort"),
@@ -52,7 +52,7 @@ for folder in folders:
 fig, ax = plt.subplots()
 ax.axis('off')
 
-col_labels = ["10","100","1000","10000","100000","1000000"]
+col_labels = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100", "200", "400", "800", "1600", "3200", "6400", "12800", "25600", "51200", "102400", "204800", "409600", "819200", "1638400", "3276800"]
 table_data = results
 comparisons = [(alg1.replace('_', ' '), alg2.replace('_', ' ')) for alg1, alg2 in comparisons]
 row_labels = [f"{alg1} vs {alg2}" for alg1, alg2 in comparisons]

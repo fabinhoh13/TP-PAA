@@ -5,7 +5,7 @@
 import random, os
 i = 100
 j = 1
-instance_sizes = []
+instance_sizes = [10, 20, 30, 40, 50, 60, 70, 80, 90]
 while j <= 16:
     instance_sizes.append(i)
     i *= 2

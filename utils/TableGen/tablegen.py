@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import re
 from pathlib import Path
+import os
 
 def is_even(row):
     return row % 2 == 0
@@ -36,8 +37,8 @@ def create_table(data, row_labels, ax):
 
 
 filepath = Path("../../output/TPairedTests/")
-folders = ["10","100","1000","10000","100000","1000000"]
-algs = ["Insertion_Sort", "Merge_Sort", "Radix_Sort"]
+folders = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100", "200", "400", "800", "1600", "3200", "6400", "12800", "25600", "51200", "102400", "204800", "409600", "819200", "1638400", "3276800"]
+algs = ["Iteractive", "BranchAndBound"]
 
 results = {alg: [] for alg in algs}
 for folder in folders:
@@ -57,5 +58,7 @@ create_table(table_data, row_labels, ax)
 fig = plt.gcf()
 fig.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
 
+if os.path.exists ("../../tables") == False:
+    os.mkdir("../../tables")
 
 plt.savefig("../../tables/algs_teste_t.png", bbox_inches='tight', pad_inches=0, transparent = True,  dpi=200)

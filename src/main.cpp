@@ -1,4 +1,5 @@
 #include "Backtrack.h"
+#include "Backtrack2.h"
 #include "BranchAndBound.h"
 #include "Iterative.h"
 
@@ -28,14 +29,11 @@ int main (int argc, char *argv[]) {
             int pesoI, valorI;
             fscanf(instancia, "%d", &pesoM);
             Knapsack *k = new Knapsack(pesoM, len);
-            cout << "Feito" << endl;
             for (int j = 0; j < len; j++)
             {
                 fscanf(instancia, "%d %d", &pesoI, &valorI);
                 k->insert(new Item(j, pesoI, valorI));
             }
-            cout << "Criados itens" << endl;
-
             Iterative *it = new Iterative(len, pesoM);
             inicio = clock();
             it->solve(k);
@@ -98,7 +96,9 @@ int main (int argc, char *argv[]) {
 
             else if (op == 3)
             {
+                Backtrack2 *bt = new Backtrack2();
                 inicio = clock();
+                bt->solve(k);
                 fim = clock();
             }
             cout << "Instancia " << i << ": " << (double)(fim - inicio) / CLOCKS_PER_SEC << endl;
