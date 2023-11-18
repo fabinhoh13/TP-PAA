@@ -36,9 +36,9 @@ def create_table(data, row_labels, col_labels, ax):
 filepath = Path("../../output/TPairedTests/")
 folders = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100", "200", "400", "800", "1600", "3200", "6400", "12800", "25600", "51200", "102400", "204800", "409600", "819200", "1638400", "3276800"]
 comparisons = [
-    ("Merge_Sort", "Insertion_Sort"),
-    ("Insertion_Sort", "Radix_Sort"),
-    ("Merge_Sort", "Radix_Sort"),
+    ("BranchAndBound", "Iteractive"),
+    ("Iteractive", "SegundoTeste"),
+    ("BranchAndBound", "SegundoTeste"),
 ]
 
 results = [[] for _ in comparisons]

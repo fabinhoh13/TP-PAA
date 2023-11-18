@@ -3,14 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Caminho dos arquivos e nomes dos algoritmos
-folders = ['n10', 'n100', 'n1000', 'n10000', 'n100000', 'n1000000']
-algorithms = ["Insertion_Sort","Merge_Sort",'Radix_Sort']
+folders = ["n10", "n20", "n30", "n40", "n50", "n60", "n70", "n80", "n90", "n100", "n200", "n400", "n800", "n1600", "n3200", "n6400", "n12800", "n25600", "n51200", "n102400", "n204800", "n409600", "n819200", "n1638400", "n3276800"]
+algorithms = ["Iteractive","BranchAndBound", 'BackTrack']
 
 results = {algorithm: {} for algorithm in algorithms}
 
 for folder in folders:
     # Calcula a potência de 10 correspondente
-    power_of_10 = f'$10^{len(folder[1:]) - 1}$'
+    power_of_10 = folder.replace("n", "")
     
     for algorithm in algorithms:
         # Lê o arquivo e extrai o tempo médio
@@ -28,7 +28,7 @@ plt.style.use('ggplot')
 ax = df.plot(kind='line', grid=True, linewidth=2.0, marker='o')
 plt.ylabel('Tempo Médio', fontsize=12)
 plt.xlabel('Tamanho da entrada', fontsize=12)
-plt.title('Insertion Sort vs Merge Sort vs Radix Sort', fontsize=10)
+plt.title('Comparação entre os três Algoritmos', fontsize=10)
 
 # Personaliza a legenda
 plt.legend(fontsize=10, title_fontsize='10')

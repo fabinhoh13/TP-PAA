@@ -16,9 +16,10 @@ int main (int argc, char *argv[]) {
     clock_t inicio, fim;                         // varíaveis auxiliares para cronometrar tempo
     char caminho_arq[200];                       // variável para armazenar caminho até arquivo de entrada
     string algoritmo; // variável para armazenar nome do algoritmo;
-
+    int nIntances = 20; // número de instâncias
     if (op == 4)
     {
+        cout << "Segundo Teste" << endl << endl;
         int len = 400;
         for (int i = 1; i <= 20; i++)
         {
@@ -58,12 +59,16 @@ int main (int argc, char *argv[]) {
 
         else if (op == 3)
         {
-            algoritmo = "BranchAndBound";
+            if (tamanho >= 40)
+                nIntances = 5;
+            else if (tamanho >= 50)
+                nIntances = 1;
+            algoritmo = "Backtrack";
         }
 
         cout << "Algoritmo: " << algoritmo << endl << endl;
         double media = 0.0;
-        for (int i = 1; i <= 20; i++)
+        for (int i = 1; i <= nIntances; i++)
         {
             
             sprintf(caminho_arq, "../input/a1/n%d/instance-n%d-%d.in", tamanho, tamanho, i);

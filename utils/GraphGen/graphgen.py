@@ -4,7 +4,7 @@ import numpy as np
 
 tamanhos = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600, 51200, 102400, 204800, 409600, 819200, 1638400, 3276800]
 tempos_execucao = {tam: [] for tam in tamanhos}
-algs = ["Iteractive", "BranchAndBound", "SegundoTeste"]
+algs = ["Iteractive", "BranchAndBound", "BackTrack", "SegundoTeste"]
 
 for alg in algs:
     for tamanho in tamanhos:
@@ -19,7 +19,7 @@ for alg in algs:
             tempos_execucao[tamanho] = [float(line.split(': ')[1]) for line in lines if ': ' in line]
 
     # Criar o gráfico
-    plt.figure(figsize=(10,5))
+    plt.figure(figsize=(30, 10))
     plt.boxplot([tempos_execucao[tam] for tam in tamanhos], labels=[str(tam) for tam in tamanhos])
 
     plt.xlabel('Tamanho da Instância')

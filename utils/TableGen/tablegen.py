@@ -9,6 +9,7 @@ def is_even(row):
 def extract_confidence_interval(filepath):
     with open(filepath, "r") as f:
         for line in f:
+            #print (line)
             if "Intervalo de Confiança" in line:
                 match = re.search(r"\((.*); (.*)\)", line)
                 if match:
@@ -38,16 +39,18 @@ def create_table(data, row_labels, ax):
 
 filepath = Path("../../output/TPairedTests/")
 folders = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100", "200", "400", "800", "1600", "3200", "6400", "12800", "25600", "51200", "102400", "204800", "409600", "819200", "1638400", "3276800"]
-algs = ["Iteractive", "BranchAndBound"]
+algs = ["Iteractive", "BranchAndBound", "SegundoTeste"]
 
 results = {alg: [] for alg in algs}
 for folder in folders:
     for alg in algs:
+        #print (alg, folder)
         file_path = filepath / f"n{folder}" / f"{alg}.out"
+        #print (file_path)
         confidence_interval = extract_confidence_interval(file_path)
+        #print (confidence_interval)
         if confidence_interval:
             results[alg].append(confidence_interval)
-
 fig, ax = plt.subplots()
 ax.axis('off')
 
